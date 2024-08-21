@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="message"></h1>
+    <div class="message2" style="display: none;">すまない。これは嘘だ。<br>
+        騙してしまって申し訳ない。<br>いや、元々分かっていたのかもしれないけどね。<br>とにかく、これは嘘なんだ。別IDをこんな簡単に作れるわけが無いだろう？
+        <br>一つ、私から君たちへ質問がある。<br>荒らしをしたくてURLをクリックしたのかい？<br>荒らしをしたくてこのURLに入ったのならいい罰になっただろう<br>
+        そして荒らしがしたいわけでもないなら、詐欺の危険性があるから簡単にURLをクリックするんじゃない。<br><br>それともう一つ。<br>このスクリプトを組むのに12時間費やしたからレスはしてくれよ。<br>それでは。</div>
+    <img class="image" src="https://blog-imgs-35.fc2.com/a/k/b/akbgaaden/hahawarosu_01.jpg" style="display: none;" alt="画像の表示にエラー">
+    <audio class="sound" src="https://soundeffect-lab.info/sound/anime/mp3/drum-japanese1.mp3">
+    
+    <script>
+        let next = '0';
+        let text = ['IPアドレスを取得...', 'UIDを取得...', 'UAを取得...', 'サーバーへアクセス...', '別IDを作成中...', '忍法レベルを引き上げ...'];
+        let counter = 0;
+
+        function displayMessage() {
+            if (counter < text.length) {
+                document.getElementById("message").innerText = text[counter];
+                counter++;
+                setTimeout(displayMessage, 3000);
+            } else {
+                next = "1";
+                checkNext();
+            }
+        }
+
+        function checkNext(){
+            if (next === '1'){
+                document.getElementById("message").style.display = "none";
+                document.querySelector(".message2").style.display = "block";
+                document.querySelector(".image").style.display = "block";
+                document.querySelector(".sound").play();
+            }
+        }
+
+        window.onload = function() {
+            displayMessage();
+        };
+    </script>
+    <style>
+        body{
+    background-color: black;
+}
+#message{
+    color:blue;
+    text-align: center;
+    margin-top:200px;
+    font-size:40px
+}
+.message2{
+    color:rgb(255, 255, 255);
+    text-align: center;
+    margin-top:200px;
+    font-size:30px   
+}
+    </style>
+</body>
+</html>
